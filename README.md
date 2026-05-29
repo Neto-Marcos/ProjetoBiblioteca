@@ -59,4 +59,4 @@ O projeto segue uma organização em pacotes para melhor manutenção:
 Este projeto é de uso acadêmico/educativo. Sinta-se à vontade para clonar e realizar melhorias!
 
 ---
-Desenvolvido por [Neto Marcos](https://github.com/Neto-Marcos) e equipe.
+Desenvolvido por [Neto Marcos](https://github.com/Neto-Marcos).
