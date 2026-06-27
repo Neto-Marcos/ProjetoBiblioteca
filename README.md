@@ -1,62 +1,50 @@
-# Projeto Biblioteca 📚
+# Projeto Biblioteca
 
-Um sistema de gerenciamento de biblioteca simples e eficiente, desenvolvido em Java. O projeto permite o cadastro de livros, controle de empréstimos, devoluções com cálculo de multa e diversas formas de listagem.
+Sistema simples de gerenciamento de biblioteca feito em Java para console.
 
-## 🚀 Funcionalidades
+Esta versao segue a proposta com orientacao a objetos:
 
-- **Cadastro de Livros:** Adicione novos títulos e autores ao acervo (limite de 100 livros).
-- **Pesquisa de Livros:** Localize rapidamente um livro pelo título.
-- **Sistema de Empréstimos:** 
-    - Realize empréstimos informando o título do livro e o nome do usuário.
-    - Limite de até 3 livros por usuário.
-    - Prazo padrão de 7 dias para devolução.
-- **Controle de Devoluções:**
-    - Registro de devolução com cálculo automático de multa para atrasos (R$ 2,00 por dia).
-- **Listagens Diversas:**
-    - Listar todos os livros cadastrados.
-    - Listar apenas livros disponíveis.
-    - Listar livros por autor específico.
-- **Gerenciamento de Acervo:** Exclusão de livros que não estejam emprestados.
+- classe abstrata `Material`;
+- classe `Livro`, que herda de `Material`;
+- classe `Revista`, que herda de `Material`;
+- enum `Genero`;
+- classe `Biblioteca`, que usa `ArrayList<Material>`.
 
-## 🛠️ Tecnologias Utilizadas
+## Funcionalidades
 
-- **Linguagem:** Java
-- **Paradigma:** Programação Orientada a Objetos (POO)
-- **Interface:** Console (CLI)
+- Adicionar livros
+- Adicionar revistas
+- Pesquisar material por titulo
+- Excluir material por titulo
+- Listar todos os materiais cadastrados
+- Validar campos obrigatorios
+- Exibir feedback em todas as operacoes
 
-## 📁 Estrutura do Projeto
+## Como abrir no IntelliJ
 
-O projeto segue uma organização em pacotes para melhor manutenção:
+1. Abra o IntelliJ IDEA.
+2. Clique em `Open`.
+3. Selecione a pasta `ProjetoBiblioteca`.
+4. Abra o arquivo `src/app/Main.java`.
+5. Clique no botao de executar ao lado do metodo `main`.
 
-- `app`: Contém a classe `Main`, ponto de entrada do sistema.
-- `model`: Define a estrutura de dados e o "banco de dados" em memória (`Biblioteca.java`).
-- `service`: Contém a lógica de negócio (Empréstimos, Listagens, Gerenciamento de Livros).
-- `view`: Responsável pela interação com o usuário e exibição de menus.
-- `util`: Classes utilitárias (Ex: `InputUtil.java`).
+## Como executar pelo terminal
 
-## ⚙️ Como Executar
+```bash
+javac -d out src/app/Main.java src/model/*.java
+java -cp out app.Main
+```
 
-1. Certifique-se de ter o **JDK (Java Development Kit)** instalado em sua máquina.
-2. Clone o repositório:
-   ```bash
-   git clone https://github.com/Neto-Marcos/ProjetoBiblioteca.git
-   ```
-3. Navegue até o diretório do projeto:
-   ```bash
-   cd ProjetoBiblioteca
-   ```
-4. Compile os arquivos Java:
-   ```bash
-   javac -d out src/**/*.java
-   ```
-5. Execute a aplicação:
-   ```bash
-   java -cp out app.Main
-   ```
+## Estrutura
 
-## 📝 Licença
-
-Este projeto é de uso acadêmico/educativo. Sinta-se à vontade para clonar e realizar melhorias!
-
----
-Desenvolvido por [Neto Marcos](https://github.com/Neto-Marcos).
+```text
+src/
+  app/
+    Main.java
+  model/
+    Biblioteca.java
+    Genero.java
+    Livro.java
+    Material.java
+    Revista.java
+```

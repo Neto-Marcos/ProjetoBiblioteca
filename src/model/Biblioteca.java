@@ -1,21 +1,49 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Biblioteca {
 
-    public static final int DISPONIVEL = 0;
-    public static final int EMPRESTADO = 1;
+    // ArrayList permite guardar livros e revistas juntos usando o tipo base Material.
+    private ArrayList<Material> materiais = new ArrayList<>();
 
-    public static final int LIMITE_LIVROS = 100;
+    // Recebe qualquer objeto que herde de Material, como Livro ou Revista.
+    public void adicionar(Material material) {
+        materiais.add(material);
+    }
 
-    public static String[] arrayTitulos = new String[LIMITE_LIVROS];
+    // Percorre a lista procurando um material com o titulo informado.
+    public Material pesquisarPorTitulo(String titulo) {
+        for (Material material : materiais) {
+            if (material.getTitulo().equalsIgnoreCase(titulo)) {
+                return material;
+            }
+        }
 
-    public static String[] arrayAutores = new String[LIMITE_LIVROS];
+        return null;
+    }
 
-    public static int[] arrayStatus = new int[LIMITE_LIVROS];
+    // Exclui o material reaproveitando a pesquisa por titulo.
+    public boolean excluirPorTitulo(String titulo) {
+        Material material = pesquisarPorTitulo(titulo);
 
-    public static String[] arrayLocatarios = new String[LIMITE_LIVROS];
+        if (material == null) {
+            return false;
+        }
 
-    public static int[] arrayPrazos = new int[LIMITE_LIVROS];
+        materiais.remove(material);
+        return true;
+    }
 
-    public static int quantidadeLivros = 0;
+    // Lista todos os materiais usando o toString especifico de cada classe.
+    public void listarTodos() {
+        if (materiais.isEmpty()) {
+            System.out.println("Nenhum material cadastrado.");
+            return;
+        }
+
+        for (int i = 0; i < materiais.size(); i++) {
+            System.out.println("[ID: " + (i + 1) + "] " + materiais.get(i));
+        }
+    }
 }
